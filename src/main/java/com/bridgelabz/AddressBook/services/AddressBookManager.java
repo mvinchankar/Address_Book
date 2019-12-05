@@ -84,6 +84,16 @@ public class AddressBookManager implements AddressBookImplementation {
         return false;
     }
 
-
+    public boolean readJsonDataConvertIntoList(String fileName) throws IOException {
+        File SAMPLE_JSON_FILE_PATH = new File("/home/slot1/IdeaProjects/Address Book/src/main/resources/"+fileName);
+        if (SAMPLE_JSON_FILE_PATH.exists()) {
+            Gson gson = new Gson();
+            BufferedReader br=new BufferedReader(new FileReader(SAMPLE_JSON_FILE_PATH));
+            Person[] people = gson.fromJson(br,Person[].class);
+            System.out.println(Arrays.toString(people));
+            return true;
+        }
+        return false;
+    }
 
 }
