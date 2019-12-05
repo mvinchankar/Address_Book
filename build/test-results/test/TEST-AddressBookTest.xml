@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="AddressBookTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-05T09:14:38" hostname="FH400" time="0.021">
+<testsuite name="AddressBookTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-05T11:34:56" hostname="FH400" time="0.076">
   <properties/>
-  <testcase name="when_Add_Details_To_New_File_Entered_Should_Return_true" classname="AddressBookTest" time="0.021"/>
-  <system-out><![CDATA[[Person{firstName='RAMESH', lastName='SURESH', mobileNumber='946867975', address=Address{stateName='Akola', cityName='MH', zipCode='444002'}}]
+  <testcase name="when_Read_From_File_Should_Return_True" classname="AddressBookTest" time="0.076"/>
+  <system-out><![CDATA[[Person{firstName='RAMESH', lastName='SURESH', mobileNumber='9468679751', address=Address{stateName='Akola', cityName='MH', zipCode='444002'}}]
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

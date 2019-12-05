@@ -1,4 +1,3 @@
-import com.bridgelabz.AddressBook.controller.Driver;
 import com.bridgelabz.AddressBook.model.Address;
 import com.bridgelabz.AddressBook.model.Person;
 import com.bridgelabz.AddressBook.services.AddressBookManager;
@@ -38,4 +37,20 @@ public class AddressBookTest {
         Assert.assertEquals("94686795", addressBookManager.add("RAMESH", "SURESH", "946867975", "Akola", "MH", "444002").getMobileNumber());
 
     }
+    @Test
+    public void when_Save_Details_To_New_File_Entered_Should_Return_False() throws IOException {
+        AddressBookManager addressBookManager = new AddressBookManager();
+        Person person = new Person();
+        addressBookManager.add("RAMESH", "SURESH", "9468679751", "Akola", "MH", "444002");
+        Assert.assertEquals(true,addressBookManager.saveEntries());
+
+    }
+    @Test
+    public void when_Read_From_File_Should_Return_True() throws IOException {
+        AddressBookManager addressBookManager = new AddressBookManager();
+        Person person = new Person();
+        Assert.assertEquals(true,addressBookManager.readJsonDataConvertIntoList("Govandi.json"));
+
+    }
+
 }

@@ -1,0 +1,12 @@
+[
+  {
+    "firstName": "RAMESH",
+    "lastName": "SURESH",
+    "mobileNumber": "9468679751",
+    "address": {
+      "stateName": "Akola",
+      "cityName": "MH",
+      "zipCode": "444002"
+    }
+  }
+]
