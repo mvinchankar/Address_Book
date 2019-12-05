@@ -5,6 +5,10 @@ public class Address {
     private String cityName;
     private String zipCode;
 
+    public Address() {
+
+    }
+
     public String getStateName() {
         return stateName;
     }
@@ -19,6 +23,12 @@ public class Address {
 
     public void setCityName(String cityName) {
         this.cityName = cityName;
+    }
+
+    public Address(String stateName, String cityName, String zipCode) {
+        this.stateName = stateName;
+        this.cityName = cityName;
+        this.zipCode = zipCode;
     }
 
     public String getZipCode() {

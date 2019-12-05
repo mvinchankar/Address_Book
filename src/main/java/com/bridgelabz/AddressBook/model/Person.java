@@ -3,8 +3,20 @@ package com.bridgelabz.AddressBook.model;
 public class Person {
     private String firstName;
     private String lastName;
-    private Address address;
     private String mobileNumber;
+    private Address address;
+
+
+    public Person(String firstName, String lastName,Address address, String mobileNumber) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.mobileNumber = mobileNumber;
+        this.address = address;
+    }
+
+    public Person() {
+
+    }
 
     public String getFirstName() {
         return firstName;
@@ -43,8 +55,8 @@ public class Person {
         return "Person{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", address=" + address +
                 ", mobileNumber='" + mobileNumber + '\'' +
+                ", address=" + address +
                 '}';
     }
 }
