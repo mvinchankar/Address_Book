@@ -52,5 +52,13 @@ public class AddressBookTest {
         Assert.assertEquals(true,addressBookManager.readJsonDataConvertIntoList("Govandi.json"));
 
     }
+    @Test
+    public void when_Edit_To_File_Should_Return_True() throws IOException {
+        AddressBookManager addressBookManager = new AddressBookManager();
+        Person person = new Person();
+        addressBookManager.add("RAMESH", "SURESH", "9468679751", "Akola", "MH", "444002");
+        Assert.assertEquals(true,addressBookManager.editByParticularFields("RANA","9468679751","LastName"));
+
+    }
 
 }

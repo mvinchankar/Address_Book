@@ -2,6 +2,7 @@ package com.bridgelabz.AddressBook.services;
 
 import com.bridgelabz.AddressBook.model.Person;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public interface AddressBookImplementation {
@@ -11,7 +12,7 @@ public interface AddressBookImplementation {
 
     public boolean saveEntries() throws IOException;
 
-    public void editByParticularFields(String fieldName, String replaceField);
+    public boolean editByParticularFields(String newFieldName,String fieldName, String replaceField) throws IOException;
 
     public boolean readJsonDataConvertIntoList(String SAMPLE_JSON_FILE_PATH) throws IOException;
 
