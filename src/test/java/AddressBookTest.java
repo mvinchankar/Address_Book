@@ -7,9 +7,15 @@ import java.io.IOException;
 
 public class AddressBookTest {
     @Test
-    public void when_Correct_New_FileName_Entered_Should_Return_true() throws IOException {
+    public void when_Correct_New_FileName_Entered_Should_Return_false() throws IOException {
         AddressBookManager addressBookManager=new AddressBookManager();
-        Assert.assertEquals(false,addressBookManager.createNewAddressBook("Govandi"));
+        Assert.assertEquals(false,addressBookManager.createNewAddressBook("Kurla"));
+
+    }
+    @Test
+    public void when_Incorrect_New_FileName_Entered_Should_Return_true() throws IOException {
+        AddressBookManager addressBookManager=new AddressBookManager();
+        Assert.assertEquals(true,addressBookManager.createNewAddressBook("Govandi"));
 
     }
 }
