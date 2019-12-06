@@ -53,7 +53,7 @@ public class AddressBookManager implements AddressBookImplementation {
     }
 
 
-    public boolean saveEntries(String fileName, Person person) throws IOException {
+    public boolean saveEntries(String fileName, Person person) throws IOException, CustomException {
         File SAMPLE_JSON_FILE_PATH = new File("/home/slot1/IdeaProjects/Address Book/src/main/resources/Govandi.json");
         if (SAMPLE_JSON_FILE_PATH.exists()) {
             Gson gson = new Gson();
@@ -68,7 +68,7 @@ public class AddressBookManager implements AddressBookImplementation {
         return false;
     }
 
-    public List<Person> readJsonDataConvertIntoList(String fileName) throws IOException {
+    public List<Person> readJsonDataConvertIntoList(String fileName) throws IOException, CustomException {
         try {
             File SAMPLE_JSON_FILE_PATH = new File("/home/slot1/IdeaProjects/Address Book/src/main/resources/" + fileName);
             if (SAMPLE_JSON_FILE_PATH.exists()) {
@@ -81,12 +81,12 @@ public class AddressBookManager implements AddressBookImplementation {
                 return arrayList;
             }
         } catch (NullPointerException e) {
-            System.out.println("EMPTY FILE!!");
+            throw new CustomException(CustomException.ExceptionType.NODATAINFILE, "NO DATA IN FILE", e);
         }
         return null;
     }
 
-    public boolean openFile(String fileName) throws IOException {
+    public boolean openFile(String fileName) throws IOException, CustomException {
         List container = readJsonDataConvertIntoList(fileName);
         if (container.equals(null)) {
             return false;
@@ -94,7 +94,7 @@ public class AddressBookManager implements AddressBookImplementation {
         return true;
     }
 
-    public boolean editByParticularFields(String fileName, String newFieldName, String fieldName, String replaceField) throws IOException {
+    public boolean editByParticularFields(String fileName, String newFieldName, String fieldName, String replaceField) throws IOException, CustomException {
         String SAMPLE_JSON_FILE_PATH = "/home/slot1/IdeaProjects/Address Book/src/main/resources/Govandi.json";
         readJsonDataConvertIntoList(fileName);
         int flag = 0;
@@ -145,7 +145,7 @@ public class AddressBookManager implements AddressBookImplementation {
         return false;
     }
 
-    public boolean deletePersonDetails(String fileName, String personUniqueDetail) throws IOException {
+    public boolean deletePersonDetails(String fileName, String personUniqueDetail) throws IOException, CustomException {
         String SAMPLE_JSON_FILE_PATH = "/home/slot1/IdeaProjects/Address Book/src/main/resources/Govandi.json";
         readJsonDataConvertIntoList(fileName);
         int flag = 0;
@@ -185,6 +185,7 @@ public class AddressBookManager implements AddressBookImplementation {
         print(list);
         return true;
     }
+
     public boolean sortByZipCode() throws IOException {
         List<Person> list = mapper.readValue(new File("/home/slot1/IdeaProjects/Address Book/src/main/resources/Govandi.json"),
                 new TypeReference<List<Person>>() {

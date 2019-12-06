@@ -1,11 +1,11 @@
 import com.bridgelabz.AddressBook.model.Person;
 import com.bridgelabz.AddressBook.services.AddressBookManager;
+import com.bridgelabz.AddressBook.services.CustomException;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+
 
 public class AddressBookTest {
     @Test
@@ -31,31 +31,47 @@ public class AddressBookTest {
     }
 
     @Test
-    public void when_Save_Details_To_New_File_Entered_Should_Return_False() throws IOException {
+    public void when_Save_Details_To_New_File_Entered_Should_Return_False() throws IOException, CustomException {
         AddressBookManager addressBookManager = new AddressBookManager();
         Person person = addressBookManager.add("MANGESH", "GILL", "123000000", "Akola", "MH", "444002");
-        Assert.assertEquals(true, addressBookManager.saveEntries("Govandi.json", person));
+        try {
+            Assert.assertEquals(true, addressBookManager.saveEntries("Govandi.json", person));
+        } catch (CustomException e) {
+            throw new CustomException(CustomException.ExceptionType.NODATAINFILE, e.getMessage());
+        }
 
     }
 
     @Test
-    public void when_Read_From_File_Should_Return_True() throws IOException {
+    public void when_Read_From_File_Should_Return_True() throws IOException, CustomException {
         AddressBookManager addressBookManager = new AddressBookManager();
-        Assert.assertEquals(true, addressBookManager.openFile("Govandi.json"));
+        try {
+            Assert.assertEquals(true, addressBookManager.openFile("Govandi.json"));
+        } catch (CustomException e) {
+            throw new CustomException(CustomException.ExceptionType.NODATAINFILE, e.getMessage());
+        }
 
     }
 
     @Test
-    public void when_Edit_To_File_Should_Return_True() throws IOException {
+    public void when_Edit_To_File_Should_Return_True() throws IOException, CustomException {
         AddressBookManager addressBookManager = new AddressBookManager();
-        Assert.assertEquals(true, addressBookManager.editByParticularFields("Govandi.json", "RANA", "123000000", "LastName"));
+        try {
+            Assert.assertEquals(true, addressBookManager.editByParticularFields("Govandi.json", "RANA", "123000000", "LastName"));
+        } catch (CustomException e) {
+            throw new CustomException(CustomException.ExceptionType.NODATAINFILE, e.getMessage());
+        }
 
     }
 
     @Test
-    public void when_Delete_Person_Details_From_File_Should_Return_True() throws IOException {
+    public void when_Delete_Person_Details_From_File_Should_Return_True() throws IOException, CustomException {
         AddressBookManager addressBookManager = new AddressBookManager();
-        Assert.assertEquals(true, addressBookManager.deletePersonDetails("Govandi.json", "123000000"));
+        try {
+            Assert.assertEquals(true, addressBookManager.deletePersonDetails("Govandi.json", "123000000"));
+        } catch (CustomException e) {
+            throw new CustomException(CustomException.ExceptionType.NODATAINFILE, e.getMessage());
+        }
 
     }
 
@@ -65,7 +81,8 @@ public class AddressBookTest {
         Assert.assertEquals(true, addressBookManager.sortByName());
 
     }
-@Test
+
+    @Test
     public void when_Sort_By_Person_ZipCode_From_File_Should_Return_True() throws IOException {
         AddressBookManager addressBookManager = new AddressBookManager();
         Assert.assertEquals(true, addressBookManager.sortByZipCode());
