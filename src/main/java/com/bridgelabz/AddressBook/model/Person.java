@@ -4,18 +4,32 @@ public class Person {
     private String firstName;
     private String lastName;
     private String mobileNumber;
-    private Address address;
+    private String stateName;
+    private String cityName;
+    private String zipCode;
 
+    @Override
+    public String toString() {
+        return "Person{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", mobileNumber='" + mobileNumber + '\'' +
+                ", stateName='" + stateName + '\'' +
+                ", cityName='" + cityName + '\'' +
+                ", zipCode='" + zipCode + '\'' +
+                '}';
+    }
 
-    public Person(String firstName, String lastName,Address address, String mobileNumber) {
+    public Person(String firstName, String lastName, String mobileNumber, String stateName, String cityName, String zipCode) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.mobileNumber = mobileNumber;
-        this.address = address;
+        this.stateName = stateName;
+        this.cityName = cityName;
+        this.zipCode = zipCode;
     }
 
     public Person() {
-
     }
 
     public String getFirstName() {
@@ -34,14 +48,6 @@ public class Person {
         this.lastName = lastName;
     }
 
-    public Address getAddress() {
-        return address;
-    }
-
-    public void setAddress(Address address) {
-        this.address = address;
-    }
-
     public String getMobileNumber() {
         return mobileNumber;
     }
@@ -50,13 +56,27 @@ public class Person {
         this.mobileNumber = mobileNumber;
     }
 
-    @Override
-    public String toString() {
-        return "Person{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", mobileNumber='" + mobileNumber + '\'' +
-                ", address=" + address +
-                '}';
+    public String getStateName() {
+        return stateName;
+    }
+
+    public void setStateName(String stateName) {
+        this.stateName = stateName;
+    }
+
+    public String getCityName() {
+        return cityName;
+    }
+
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
+    }
+
+    public String getZipCode() {
+        return zipCode;
+    }
+
+    public void setZipCode(String zipCode) {
+        this.zipCode = zipCode;
     }
 }
