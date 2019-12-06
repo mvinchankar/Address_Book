@@ -1,25 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="AddressBookTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2019-12-06T10:55:52" hostname="FH400" time="1.357">
+<testsuite name="AddressBookTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-06T11:09:58" hostname="FH400" time="0.982">
   <properties/>
-  <testcase name="when_Sort_By_Person_FirstName_From_File_Should_Return_True" classname="AddressBookTest" time="1.045"/>
-  <testcase name="when_Read_From_File_Should_Return_True" classname="AddressBookTest" time="0.038"/>
-  <testcase name="when_Add_Details_To_New_File_Entered_Should_Return_true" classname="AddressBookTest" time="0.002"/>
-  <testcase name="when_Delete_Person_Details_From_File_Should_Return_True" classname="AddressBookTest" time="0.058"/>
-  <testcase name="when_Save_Details_To_New_File_Entered_Should_Return_False" classname="AddressBookTest" time="0.137"/>
-  <testcase name="when_Edit_To_File_Should_Return_True" classname="AddressBookTest" time="0.049"/>
-  <testcase name="when_Incorrect_New_FileName_Entered_Should_Return_true" classname="AddressBookTest" time="0.005"/>
-  <testcase name="when_Correct_New_FileName_Entered_Should_Return_false" classname="AddressBookTest" time="0.006"/>
+  <testcase name="when_Sort_By_Person_ZipCode_From_File_Should_Return_True" classname="AddressBookTest" time="0.982"/>
   <system-out><![CDATA[FirstName LastName Mobile_Number State City Zip 
 
-MANGESH GILL 123000000 Akola MH 444002
-SAMMER SURESH 9468679751 Akola MH 444002
-[Person{firstName='SAMMER', lastName='SURESH', mobileNumber='9468679751', stateName='MH', cityName='Akola', zipCode='444002'}]
-[Person{firstName='SAMMER', lastName='SURESH', mobileNumber='9468679751', stateName='MH', cityName='Akola', zipCode='444002'}]
-[Person{firstName='SAMMER', lastName='SURESH', mobileNumber='9468679751', stateName='MH', cityName='Akola', zipCode='444002'}, Person{firstName='MANGESH', lastName='RANA', mobileNumber='123000000', stateName='MH', cityName='Akola', zipCode='444002'}]
-
-		The name Govandi is already used in this location. Please use a different name.
-
-		The name Kurla is already used in this location. Please use a different name.
+MANGESH RANA 123000000 Akola MH 111111
+SAMMER SURESH 9468679751 Akola MH 222222
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

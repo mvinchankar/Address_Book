@@ -30,13 +30,6 @@ public class AddressBookTest {
 
     }
 
-    //    @Test
-//    public void when_Add_Details_To_New_File_Entered_Should_Return_False() throws IOException {
-//        AddressBookManager addressBookManager = new AddressBookManager();
-//        Person person = new Person();
-//        Assert.assertEquals("Akola", addressBookManager.add("MANGESH", "SURESH", "946867975", "Akola", "MH", "444002").getCityName());
-//
-//    }
     @Test
     public void when_Save_Details_To_New_File_Entered_Should_Return_False() throws IOException {
         AddressBookManager addressBookManager = new AddressBookManager();
@@ -70,6 +63,12 @@ public class AddressBookTest {
     public void when_Sort_By_Person_FirstName_From_File_Should_Return_True() throws IOException {
         AddressBookManager addressBookManager = new AddressBookManager();
         Assert.assertEquals(true, addressBookManager.sortByName());
+
+    }
+@Test
+    public void when_Sort_By_Person_ZipCode_From_File_Should_Return_True() throws IOException {
+        AddressBookManager addressBookManager = new AddressBookManager();
+        Assert.assertEquals(true, addressBookManager.sortByZipCode());
 
     }
 

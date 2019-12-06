@@ -185,6 +185,23 @@ public class AddressBookManager implements AddressBookImplementation {
         print(list);
         return true;
     }
+    public boolean sortByZipCode() throws IOException {
+        List<Person> list = mapper.readValue(new File("/home/slot1/IdeaProjects/Address Book/src/main/resources/Govandi.json"),
+                new TypeReference<List<Person>>() {
+                });
+        for (int i = 0; i < list.size() - 1; i++) {
+            for (int j = i + 1; j < list.size(); j++) {
+                if (list.get(i).getZipCode().compareTo(list.get(j).getZipCode()) > 0) {
+                    Person temp1 = list.remove(i);
+                    Person temp2 = list.remove(j - 1);
+                    list.add(i, temp2);
+                    list.add(j, temp1);
+                }
+            }
+        }
+        print(list);
+        return true;
+    }
 
     public static Boolean print(List<Person> listData) {
         System.out.println("FirstName LastName Mobile_Number State City Zip \n");
