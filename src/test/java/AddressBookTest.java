@@ -30,7 +30,7 @@ public class AddressBookTest {
 
     }
 
-//    @Test
+    //    @Test
 //    public void when_Add_Details_To_New_File_Entered_Should_Return_False() throws IOException {
 //        AddressBookManager addressBookManager = new AddressBookManager();
 //        Person person = new Person();
@@ -40,21 +40,38 @@ public class AddressBookTest {
     @Test
     public void when_Save_Details_To_New_File_Entered_Should_Return_False() throws IOException {
         AddressBookManager addressBookManager = new AddressBookManager();
-        Person person = addressBookManager.add("SAMMER", "SURESH", "000000000", "Akola", "MH", "444002");
-      Assert.assertEquals(true,addressBookManager.saveEntries("Govandi.json",person));
+        Person person = addressBookManager.add("MANGESH", "GILL", "123000000", "Akola", "MH", "444002");
+        Assert.assertEquals(true, addressBookManager.saveEntries("Govandi.json", person));
 
     }
+
     @Test
     public void when_Read_From_File_Should_Return_True() throws IOException {
         AddressBookManager addressBookManager = new AddressBookManager();
-        Assert.assertEquals(true,addressBookManager.openFile("Govandi.json"));
+        Assert.assertEquals(true, addressBookManager.openFile("Govandi.json"));
 
     }
+
     @Test
     public void when_Edit_To_File_Should_Return_True() throws IOException {
         AddressBookManager addressBookManager = new AddressBookManager();
-        Assert.assertEquals(true,addressBookManager.editByParticularFields("Govandi.json","RANA","000000000","LastName"));
+        Assert.assertEquals(true, addressBookManager.editByParticularFields("Govandi.json", "RANA", "123000000", "LastName"));
 
     }
+
+    @Test
+    public void when_Delete_Person_Details_From_File_Should_Return_True() throws IOException {
+        AddressBookManager addressBookManager = new AddressBookManager();
+        Assert.assertEquals(true, addressBookManager.deletePersonDetails("Govandi.json", "123000000"));
+
+    }
+
+    @Test
+    public void when_Sort_By_Person_FirstName_From_File_Should_Return_True() throws IOException {
+        AddressBookManager addressBookManager = new AddressBookManager();
+        Assert.assertEquals(true, addressBookManager.sortByName());
+
+    }
+
 
 }

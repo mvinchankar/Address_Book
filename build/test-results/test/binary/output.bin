@@ -1,1 +1,11 @@
-ú[Person{firstName='SAMMER', lastName='SURESH', mobileNumber='9468679751', stateName='MH', cityName='Akola', zipCode='444002'}, Person{firstName='SAMMER', lastName='RANA', mobileNumber='000000000', stateName='MH', cityName='Akola', zipCode='444002'}]
+1FirstName LastName Mobile_Number State City Zip 
+
+'MANGESH GILL 123000000 Akola MH 444002
+)SAMMER SURESH 9468679751 Akola MH 444002
+[Person{firstName='SAMMER', lastName='SURESH', mobileNumber='9468679751', stateName='MH', cityName='Akola', zipCode='444002'}]
+[Person{firstName='SAMMER', lastName='SURESH', mobileNumber='9468679751', stateName='MH', cityName='Akola', zipCode='444002'}]
+û[Person{firstName='SAMMER', lastName='SURESH', mobileNumber='9468679751', stateName='MH', cityName='Akola', zipCode='444002'}, Person{firstName='MANGESH', lastName='RANA', mobileNumber='123000000', stateName='MH', cityName='Akola', zipCode='444002'}]
+
+R		The name Govandi is already used in this location. Please use a different name.
+	
+	P		The name Kurla is already used in this location. Please use a different name.

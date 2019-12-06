@@ -1,6 +1,7 @@
 package com.bridgelabz.AddressBook.services;
 
 import com.bridgelabz.AddressBook.model.Person;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 
@@ -10,12 +11,12 @@ import java.util.List;
 
 
 public class AddressBookManager implements AddressBookImplementation {
-    private static List<Person> arrayList = new ArrayList<Person>();
+    List<Person> arrayList = new ArrayList<Person>();
     Gson gson = new Gson();
     BufferedReader br;
     Person temp;
     String filePath = "/home/slot1/IdeaProjects/Address Book/src/main/resources/";
-    private static Person person;
+    Person person = new Person();
     private static ObjectMapper mapper = new ObjectMapper();
 
     @Override
@@ -36,13 +37,18 @@ public class AddressBookManager implements AddressBookImplementation {
     }
 
     public Person add(String firstName, String lastName, String mobileNumber, String city, String state, String pincode) throws IOException {
-        person.setFirstName(firstName);
-        person.setLastName(lastName);
-        person.setMobileNumber(mobileNumber);
-        person.setCityName(city);
-        person.setStateName(state);
-        person.setZipCode(pincode);
-        Person temp= new Person(firstName,lastName,mobileNumber,city,state,pincode);
+        try {
+            person.setFirstName(firstName);
+            person.setLastName(lastName);
+            person.setMobileNumber(mobileNumber);
+            person.setCityName(city);
+            person.setStateName(state);
+            person.setZipCode(pincode);
+            Person temp = new Person(firstName, lastName, mobileNumber, city, state, pincode);
+
+        } catch (NullPointerException e) {
+            System.out.println("NULL!!!");
+        }
         return person;
     }
 
@@ -89,37 +95,75 @@ public class AddressBookManager implements AddressBookImplementation {
     }
 
     public boolean editByParticularFields(String fileName, String newFieldName, String fieldName, String replaceField) throws IOException {
+        String SAMPLE_JSON_FILE_PATH = "/home/slot1/IdeaProjects/Address Book/src/main/resources/Govandi.json";
         readJsonDataConvertIntoList(fileName);
+        int flag = 0;
         for (int i = 0; i < arrayList.size(); i++) {
             if (fieldName.equals(arrayList.get(i).getMobileNumber())) {
                 switch (replaceField) {
                     case "FirstName":
                         arrayList.get(i).setFirstName(newFieldName);
                         System.out.println(arrayList);
-                        return true;
+                        flag = 1;
+                        break;
                     case "LastName":
                         arrayList.get(i).setLastName(newFieldName);
                         System.out.println(arrayList);
-                        return true;
+                        flag = 1;
+                        break;
                     case "MobileNumber":
                         arrayList.get(i).setMobileNumber(newFieldName);
                         System.out.println(arrayList);
-                        return true;
+                        flag = 1;
+                        break;
                     case "CityName":
                         arrayList.get(i).setCityName(newFieldName);
                         System.out.println(arrayList);
-                        return true;
+                        flag = 1;
+                        break;
                     case "StateName":
                         arrayList.get(i).setStateName(newFieldName);
                         System.out.println(arrayList);
-                        return true;
+                        flag = 1;
+                        break;
                     case "ZipCode":
                         arrayList.get(i).setZipCode(newFieldName);
                         System.out.println(arrayList);
-                        return true;
+                        flag = 1;
+                        break;
 
                 }
             }
+        }
+        String json = gson.toJson(arrayList);
+        FileWriter writer = new FileWriter(SAMPLE_JSON_FILE_PATH);
+        writer.write(json);
+        writer.close();
+        if (flag == 1) {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean deletePersonDetails(String fileName, String personUniqueDetail) throws IOException {
+        String SAMPLE_JSON_FILE_PATH = "/home/slot1/IdeaProjects/Address Book/src/main/resources/Govandi.json";
+        readJsonDataConvertIntoList(fileName);
+        int flag = 0;
+        for (int i = 0; i < arrayList.size(); i++) {
+            if (personUniqueDetail.equals(arrayList.get(i).getMobileNumber())) {
+                arrayList.remove(i);
+                System.out.println(arrayList);
+                flag = 1;
+            }
+
+        }
+        String json = gson.toJson(arrayList);
+        FileWriter writer = new FileWriter(SAMPLE_JSON_FILE_PATH);
+        writer.write(json);
+        writer.close();
+        System.out.println(arrayList);
+        if (flag == 1) {
+            return true;
         }
         return false;
     }
