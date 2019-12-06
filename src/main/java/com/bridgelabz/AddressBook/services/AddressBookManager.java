@@ -80,7 +80,7 @@ public class AddressBookManager implements AddressBookImplementation {
                 }
                 return arrayList;
             }
-        } catch (NullPointerException e) {
+        } catch (AssertionError e) {
             throw new CustomException(CustomException.ExceptionType.NODATAINFILE, "NO DATA IN FILE", e);
         }
         return null;
@@ -187,6 +187,7 @@ public class AddressBookManager implements AddressBookImplementation {
     }
 
     public boolean sortByZipCode() throws IOException {
+        int flag=0;
         List<Person> list = mapper.readValue(new File("/home/slot1/IdeaProjects/Address Book/src/main/resources/Govandi.json"),
                 new TypeReference<List<Person>>() {
                 });
@@ -197,11 +198,17 @@ public class AddressBookManager implements AddressBookImplementation {
                     Person temp2 = list.remove(j - 1);
                     list.add(i, temp2);
                     list.add(j, temp1);
+                    flag=1;
                 }
             }
+
         }
-        print(list);
-        return true;
+        if(flag==1){
+            print(list);
+            return true;
+        }
+
+        return false;
     }
 
     public static Boolean print(List<Person> listData) {

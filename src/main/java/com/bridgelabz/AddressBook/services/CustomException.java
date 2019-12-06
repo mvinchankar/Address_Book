@@ -3,7 +3,7 @@ package com.bridgelabz.AddressBook.services;
 public class CustomException extends Exception {
 
     public enum ExceptionType {
-        NODATAINFILE
+        NODATAINFILE,NOSUCHFILE
     }
 
     ExceptionType type;
